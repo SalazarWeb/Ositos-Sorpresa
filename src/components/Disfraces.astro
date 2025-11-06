@@ -1,0 +1,151 @@
+---
+const disfraces = [
+  {
+    emoji: '🦸‍♂️',
+    nombre: 'Superhéroe',
+    descripcion: 'Capa, máscara y traje completo para salvar el día',
+    color: 'from-blue-400 to-blue-600'
+  },
+  {
+    emoji: '👸',
+    nombre: 'Princesa',
+    descripcion: 'Vestido mágico con corona y varita brillante',
+    color: 'from-pink-400 to-pink-600'
+  },
+  {
+    emoji: '🦁',
+    nombre: 'León',
+    descripcion: 'Melena suave y rugido incluido',
+    color: 'from-yellow-400 to-orange-500'
+  },
+  {
+    emoji: '🦄',
+    nombre: 'Unicornio',
+    descripcion: 'Cuerno mágico con purpurina y cola colorida',
+    color: 'from-purple-400 to-pink-500'
+  },
+  {
+    emoji: '🐉',
+    nombre: 'Dragón',
+    descripcion: 'Alas y cola con escamas brillantes',
+    color: 'from-green-400 to-emerald-600'
+  },
+  {
+    emoji: '🧚',
+    nombre: 'Hada',
+    descripcion: 'Alas delicadas y vestido con brillos',
+    color: 'from-cyan-400 to-blue-500'
+  },
+  {
+    emoji: '🤠',
+    nombre: 'Vaquero',
+    descripcion: 'Sombrero, chaleco y espuelas auténticas',
+    color: 'from-amber-400 to-brown-600'
+  },
+  {
+    emoji: '🐻',
+    nombre: 'Osito',
+    descripcion: 'Traje suave y tierno, el favorito de todos',
+    color: 'from-amber-300 to-amber-500'
+  },
+  {
+    emoji: '🦖',
+    nombre: 'Dinosaurio',
+    descripcion: 'Cola larga y rugido prehistórico',
+    color: 'from-lime-400 to-green-600'
+  },
+  {
+    emoji: '🧙‍♂️',
+    nombre: 'Mago',
+    descripcion: 'Túnica estrellada con sombrero y varita mágica',
+    color: 'from-indigo-400 to-purple-600'
+  },
+  {
+    emoji: '🐰',
+    nombre: 'Conejito',
+    descripcion: 'Orejas largas y cola esponjosa',
+    color: 'from-pink-300 to-pink-500'
+  },
+  {
+    emoji: '🎃',
+    nombre: 'Calabaza',
+    descripcion: 'Perfecto para celebraciones especiales',
+    color: 'from-orange-400 to-orange-600'
+  }
+];
+---
+
+<section id="disfraces" class="py-20 bg-gradient-to-br from-yellow-50 via-pink-50 to-purple-50">
+  <div class="container mx-auto px-4">
+    <!-- Header -->
+    <div class="text-center mb-16 animate-fade-in-up">
+      <span class="inline-block text-5xl mb-4">🎭</span>
+      <h2 class="font-fredoka text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+        Nuestros Disfraces
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Cada disfraz está diseñado con amor para hacer que tu pequeño sea el protagonista de su propia historia mágica
+      </p>
+    </div>
+
+    <!-- Disfraces Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+      {disfraces.map((disfraz, index) => (
+        <div 
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <div class={`bg-gradient-to-br ${disfraz.color} p-8 flex items-center justify-center h-48 relative overflow-hidden`}>
+            <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+            <span class="text-8xl transform group-hover:scale-110 transition-transform duration-300 relative z-10">
+              {disfraz.emoji}
+            </span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-fredoka text-2xl font-bold text-gray-800 mb-2">
+              {disfraz.nombre}
+            </h3>
+            <p class="text-gray-600 text-sm">
+              {disfraz.descripcion}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center bg-white rounded-3xl shadow-xl p-8 md:p-12 max-w-4xl mx-auto">
+      <div class="flex justify-center gap-2 text-4xl mb-4">
+        <span class="animate-bounce">✨</span>
+        <span class="animate-bounce animation-delay-100">🎉</span>
+        <span class="animate-bounce animation-delay-200">✨</span>
+      </div>
+      <h3 class="font-fredoka text-3xl font-bold text-gray-800 mb-4">
+        ¿No encuentras el disfraz perfecto?
+      </h3>
+      <p class="text-gray-600 text-lg mb-6">
+        ¡Tenemos muchos más! Contáctanos y te ayudaremos a encontrar el disfraz ideal para tu sorpresa
+      </p>
+      <a 
+        href="https://wa.me/34123456789?text=Hola!%20Quiero%20ver%20m%C3%A1s%20disfraces%20%F0%9F%8E%AD" 
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+      >
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        Ver Más Disfraces
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .animation-delay-100 {
+    animation-delay: 0.1s;
+  }
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+</style>
