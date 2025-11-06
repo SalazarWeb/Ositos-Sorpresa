@@ -1,52 +1,97 @@
 ---
+import Tito from '../assets/Tito.jpg';
+import Coco from '../assets/Coco.jpg';
+import Coneja from '../assets/Coneja.jpg';
+import Mickey from '../assets/Mickey.jpg';
+import Minie from '../assets/Minie.jpg';
+import Oso from '../assets/Oso.jpg';
+import Stich from '../assets/Stich.jpg';
+import { Image } from 'astro:assets';
+
 const personajes = [
+  {
+    imagen: Mickey,
+    nombre: 'Mickey',
+    descripcion: 'El ratón más famoso del mundo para alegrar tu celebración',
+    color: 'from-red-400 to-red-600',
+    hasImage: true
+  },
+  {
+    imagen: Minie,
+    nombre: 'Minnie',
+    descripcion: 'Dulzura y ternura con el moño más adorable',
+    color: 'from-pink-400 to-pink-600',
+    hasImage: true
+  },
+  {
+    imagen: Stich,
+    nombre: 'Stitch',
+    descripcion: 'El extraterrestre más tierno y travieso del universo',
+    color: 'from-blue-400 to-blue-600',
+    hasImage: true
+  },
+  {
+    imagen: Oso,
+    nombre: 'Osito',
+    descripcion: 'Traje suave y tierno, el favorito de todos',
+    color: 'from-amber-300 to-amber-500',
+    hasImage: true
+  },
+  {
+    imagen: Coneja,
+    nombre: 'Conejita',
+    descripcion: 'Orejas largas y cola esponjosa llena de ternura',
+    color: 'from-pink-300 to-pink-500',
+    hasImage: true
+  },
+  {
+    imagen: Tito,
+    nombre: 'Tito',
+    descripcion: 'El personaje mágico que encanta a todos.',
+    color: 'from-green-400 to-emerald-600',
+    hasImage: true
+  },
+  {
+    imagen: Coco,
+    nombre: 'Coco',
+    descripcion: 'Música y alegría con este personaje especial',
+    color: 'from-orange-400 to-amber-600',
+    hasImage: true
+  },
   {
     emoji: '🦸‍♂️',
     nombre: 'Superhéroe',
     descripcion: 'Capa, máscara y traje completo para salvar el día',
-    color: 'from-blue-400 to-blue-600'
+    color: 'from-blue-400 to-blue-600',
+    hasImage: false
   },
   {
     emoji: '👸',
     nombre: 'Princesa',
     descripcion: 'Vestido mágico con corona y varita brillante',
-    color: 'from-pink-400 to-pink-600'
+    color: 'from-pink-400 to-pink-600',
+    hasImage: false
   },
   {
     emoji: '🧚',
     nombre: 'Hada',
     descripcion: 'Alas delicadas y vestido con brillos',
-    color: 'from-cyan-400 to-blue-500'
-  },
-  {
-    emoji: '🤠',
-    nombre: 'Vaquero',
-    descripcion: 'Sombrero, chaleco y espuelas auténticas',
-    color: 'from-amber-400 to-brown-600'
-  },
-  {
-    emoji: '🐻',
-    nombre: 'Osito',
-    descripcion: 'Traje suave y tierno, el favorito de todos',
-    color: 'from-amber-300 to-amber-500'
+    color: 'from-cyan-400 to-blue-500',
+    hasImage: false
   },
   {
     emoji: '🦖',
     nombre: 'Dinosaurio',
     descripcion: 'Cola larga y rugido prehistórico',
-    color: 'from-lime-400 to-green-600'
+    color: 'from-lime-400 to-green-600',
+    hasImage: false
   },
   {
     emoji: '🧙‍♂️',
     nombre: 'Mago',
     descripcion: 'Túnica estrellada con sombrero y varita mágica',
-    color: 'from-indigo-400 to-purple-600'
-  },
-  {
-    emoji: '🐰',
-    nombre: 'Conejito',
-    descripcion: 'Orejas largas y cola esponjosa',
-    color: 'from-pink-300 to-pink-500'
+    color: 'from-indigo-400 to-purple-600',
+    hasImage: false
   },
 ];
 ---
@@ -65,23 +110,32 @@ const personajes = [
     </div>
 
     <!-- Personajes Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
       {personajes.map((personaje, index) => (
         <div 
-          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2"
+          class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2"
           style={`animation-delay: ${index * 0.1}s`}
         >
-          <div class={`bg-gradient-to-br ${personaje.color} p-8 flex items-center justify-center h-48 relative overflow-hidden`}>
-            <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-            <span class="text-8xl transform group-hover:scale-110 transition-transform duration-300 relative z-10">
-              {personaje.emoji}
-            </span>
+          <div class={`bg-gradient-to-br ${personaje.color} flex items-center justify-center h-80 relative overflow-hidden`}>
+            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+            {personaje.hasImage ? (
+              <Image 
+                src={personaje.imagen!} 
+                alt={personaje.nombre}
+                class="w-full h-full object-cover object-top transform group-hover:scale-110 transition-transform duration-500"
+                loading="lazy"
+              />
+            ) : (
+              <span class="text-9xl transform group-hover:scale-110 transition-transform duration-300 relative z-10">
+                {personaje.emoji}
+              </span>
+            )}
           </div>
-          <div class="p-6">
-            <h3 class="font-fredoka text-2xl font-bold text-gray-800 mb-2">
+          <div class="p-8">
+            <h3 class="font-fredoka text-3xl font-bold text-gray-800 mb-3">
               {personaje.nombre}
             </h3>
-            <p class="text-gray-600 text-sm">
+            <p class="text-gray-600 text-base leading-relaxed">
               {personaje.descripcion}
             </p>
           </div>
