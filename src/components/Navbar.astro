@@ -1,7 +1,7 @@
 ---
-const navItems = [
+const navLinks = [
   { name: 'Inicio', href: '#inicio' },
-  { name: 'Disfraces', href: '#disfraces' },
+  { name: 'Personajes', href: '#personajes' },
   { name: 'Productos', href: '#productos' },
   { name: 'Videos', href: '#videos' },
   { name: 'Testimonios', href: '#testimonios' },
@@ -27,7 +27,7 @@ const navItems = [
 
       <!-- Desktop Menu -->
       <ul class="hidden md:flex items-center gap-6">
-        {navItems.map(item => (
+        {navLinks.map(item => (
           <li>
             <a 
               href={item.href} 
@@ -68,7 +68,7 @@ const navItems = [
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
       <ul class="flex flex-col gap-3">
-        {navItems.map(item => (
+        {navLinks.map(item => (
           <li>
             <a 
               href={item.href} 
