@@ -277,18 +277,6 @@ const carruselImagenes = [
     prevBtn.addEventListener('click', () => moveCarousel(-1));
     nextBtn.addEventListener('click', () => moveCarousel(1));
     
-    // Autoplay cada 3 segundos
-    let autoplayInterval = setInterval(() => moveCarousel(1), 3000);
-    
-    /* // Pausar autoplay al hacer hover
-    track.addEventListener('mouseenter', () => {
-      clearInterval(autoplayInterval);
-    });
-    
-    track.addEventListener('mouseleave', () => {
-      autoplayInterval = setInterval(() => moveCarousel(1), 3000);
-    }); */
-    
     // Recalcular posición al cambiar el tamaño de la ventana
     let resizeTimeout: ReturnType<typeof setTimeout>;
     window.addEventListener('resize', () => {
