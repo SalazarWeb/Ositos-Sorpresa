@@ -1,177 +1,317 @@
 ---
-const testimonios = [
-  {
-    nombre: 'María González',
-    role: 'Mamá de Sofía (5 años)',
-    testimonio: 'La sonrisa de mi hija cuando vio llegar a la princesa no tiene precio. Fue una experiencia mágica que nunca olvidaremos. ¡Gracias por hacer su día tan especial!',
-    rating: 5,
-    imagen: '👩',
-    evento: 'Cumpleaños Princesa'
-  },
-  {
-    nombre: 'Carlos Rodríguez',
-    role: 'Papá de Miguel (7 años)',
-    testimonio: 'Mi hijo está obsesionado con los superhéroes y ustedes hicieron realidad su sueño. La atención al detalle y el profesionalismo fueron excepcionales. ¡100% recomendados!',
-    rating: 5,
-    imagen: '👨',
-    evento: 'Sorpresa Superhéroe'
-  },
-  {
-    nombre: 'Ana Martínez',
-    role: 'Mamá de Lucas (4 años)',
-    testimonio: 'Contraté el paquete completo para el cumpleaños de Lucas y fue perfecto. Desde los personajes hasta la decoración, todo estuvo impecable. ¡Mis invitados no paraban de elogiar!',
-    rating: 5,
-    imagen: '👩‍🦰',
-    evento: 'Paquete VIP Safari'
-  },
-  {
-    nombre: 'Roberto Silva',
-    role: 'Tío de Valentina (6 años)',
-    testimonio: 'Quería sorprender a mi sobrina y no sabía cómo. El equipo de Ositos me ayudó a planear todo. La coordinación fue perfecta y la felicidad de Valentina valió cada segundo.',
-    rating: 5,
-    imagen: '👨‍💼',
-    evento: 'Sorpresa Unicornio'
-  },
-  {
-    nombre: 'Laura Pérez',
-    role: 'Mamá de Emma y Mateo (3 y 5 años)',
-    testimonio: 'Organizar una fiesta para dos niños de diferentes edades parecía imposible, pero ustedes lo lograron. Ambos se divirtieron por igual. ¡Servicio excepcional!',
-    rating: 5,
-    imagen: '👩‍🦱',
-    evento: 'Fiesta Doble'
-  },
-  {
-    nombre: 'Diego Fernández',
-    role: 'Papá de Santiago (8 años)',
-    testimonio: 'La profesionalidad y el cariño con el que trataron a mi hijo fueron increíbles. Las fotos quedaron hermosas y el recuerdo perdurará para siempre. ¡Gracias!',
-    rating: 5,
-    imagen: '👨‍🦲',
-    evento: 'Aventura Pirata'
-  }
+import { Image } from 'astro:assets';
+
+// Importar imágenes destacadas para las cards
+import card1 from '../assets/facebook/card1.jpeg';
+import card2 from '../assets/facebook/card2.jpeg';
+import card3 from '../assets/facebook/card3.jpeg';
+import card4 from '../assets/facebook/card4.jpeg';
+import card5 from '../assets/facebook/card5.jpeg';
+import card6 from '../assets/facebook/card6.jpeg';
+import card7 from '../assets/facebook/card7.jpeg';
+import card8 from '../assets/facebook/card8.jpeg';
+import card9 from '../assets/facebook/card9.jpeg';
+
+// Importar imágenes para el carrusel (de Facebook)
+import carrusel1 from '../assets/facebook/carrusel1.jpeg';
+import carrusel3 from '../assets/facebook/carrusel3.jpeg';
+import carrusel4 from '../assets/facebook/carrusel4.jpeg';
+import carrusel6 from '../assets/facebook/carrusel6.jpeg';
+import carrusel7 from '../assets/facebook/carrusel7.jpeg';
+import carrusel9 from '../assets/facebook/carrusel9.jpeg';
+import carrusel10 from '../assets/facebook/carrusel10.jpeg';
+import carrusel12 from '../assets/facebook/carrusel12.jpeg';
+import carrusel13 from '../assets/facebook/carrusel13.jpeg';
+
+// Importar imágenes para el carrusel (de WhatsApp)
+import carrusel2 from '../assets/whatsapp/carrusel2.jpeg';
+import carrusel5 from '../assets/whatsapp/carrusel5.jpeg';
+import carrusel8 from '../assets/whatsapp/carrusel8.jpeg';
+import carrusel11 from '../assets/whatsapp/carrusel11.jpeg';
+import carrusel14 from '../assets/whatsapp/carrusel14.jpeg';
+
+// Importar collages
+import collageFacebook from '../assets/facebook/collage-facebook.png';
+import collageWhatsapp from '../assets/whatsapp/collage-whatsapp.png';
+
+const comentariosDestacados = [
+  { imagen: card1, alt: 'Comentario destacado 1' },
+  { imagen: card2, alt: 'Comentario destacado 2' },
+  { imagen: card3, alt: 'Comentario destacado 3' },
+  { imagen: card4, alt: 'Comentario destacado 4' },
+  { imagen: card5, alt: 'Comentario destacado 5' },
+  { imagen: card6, alt: 'Comentario destacado 6' },
+  { imagen: card7, alt: 'Comentario destacado 7' },
+  { imagen: card8, alt: 'Comentario destacado 8' },
+  { imagen: card9, alt: 'Comentario destacado 9' },
+];
+
+const carruselImagenes = [
+  { imagen: carrusel1, alt: 'Opinión 1' },
+  { imagen: carrusel2, alt: 'Opinión 2' },
+  { imagen: carrusel3, alt: 'Opinión 3' },
+  { imagen: carrusel4, alt: 'Opinión 4' },
+  { imagen: carrusel5, alt: 'Opinión 5' },
+  { imagen: carrusel6, alt: 'Opinión 6' },
+  { imagen: carrusel7, alt: 'Opinión 7' },
+  { imagen: carrusel8, alt: 'Opinión 8' },
+  { imagen: carrusel9, alt: 'Opinión 9' },
+  { imagen: carrusel10, alt: 'Opinión 10' },
+  { imagen: carrusel11, alt: 'Opinión 11' },
+  { imagen: carrusel12, alt: 'Opinión 12' },
+  { imagen: carrusel13, alt: 'Opinión 13' },
+  { imagen: carrusel14, alt: 'Opinión 14' },
 ];
 ---
 
 <section id="testimonios" class="py-20 bg-white">
   <div class="container mx-auto px-4">
-    <!-- Header -->
-    <div class="text-center mb-16">
-      <span class="inline-block text-5xl mb-4">💖</span>
-      <h2 class="font-fredoka text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-        Familias Felices
-      </h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        La felicidad de nuestros clientes es nuestra mayor recompensa. Lee lo que dicen las familias que han confiado en nosotros para crear momentos inolvidables.
-      </p>
+    
+    <!-- 1️⃣ SUB-SECCIÓN: Comentarios destacados -->
+    <div class="mb-20">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <span class="inline-block text-5xl mb-4">💖</span>
+        <h2 class="font-fredoka text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          Lo que dicen nuestros clientes en redes
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Sus palabras son el reflejo de la emoción que compartimos en cada sorpresa.
+        </p>
+      </div>
+
+      <!-- Grid de comentarios destacados -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {comentariosDestacados.map((comentario, index) => (
+          <div 
+            class="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            style={`animation-delay: ${index * 0.1}s`}
+          >
+            <Image
+              src={comentario.imagen}
+              alt={comentario.alt}
+              class="w-full h-auto object-cover"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
     </div>
 
-    <!-- Testimonios Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-      {testimonios.map((testimonio, index) => (
-        <div 
-          class="group bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-6 border-2 border-pink-100 hover:border-pink-300 transform hover:-translate-y-2"
-          style={`animation-delay: ${index * 0.1}s`}
+    <!-- 2️⃣ SUB-SECCIÓN: Más opiniones felices (Carrusel) -->
+    <div class="mb-20">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <span class="inline-block text-5xl mb-4">✨</span>
+        <h2 class="font-fredoka text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          Miles de sonrisas compartidas
+        </h2>
+      </div>
+
+      <!-- Carrusel Container -->
+      <div class="relative overflow-hidden">
+        <!-- Botón Anterior -->
+        <button 
+          id="prev-btn"
+          class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110"
+          aria-label="Anterior"
         >
-          <!-- Header -->
-          <div class="flex items-start gap-4 mb-4">
-            <div class="w-14 h-14 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full flex items-center justify-center text-3xl flex-shrink-0 transform group-hover:scale-110 transition-transform duration-300">
-              {testimonio.imagen}
-            </div>
-            <div class="flex-1">
-              <h3 class="font-fredoka text-lg font-bold text-gray-800">
-                {testimonio.nombre}
-              </h3>
-              <p class="text-sm text-gray-600">{testimonio.role}</p>
-              <div class="flex gap-1 mt-1">
-                {Array.from({ length: testimonio.rating }).map(() => (
-                  <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
-                ))}
+          <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+
+        <!-- Botón Siguiente -->
+        <button 
+          id="next-btn"
+          class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110"
+          aria-label="Siguiente"
+        >
+          <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+
+        <!-- Carrusel Track -->
+        <div id="carousel-track" class="flex gap-4 transition-transform duration-500 ease-in-out">
+          {carruselImagenes.map((imagen) => (
+            <div class="flex-shrink-0 w-80 md:w-96 carousel-item">
+              <div class="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                <Image
+                  src={imagen.imagen}
+                  alt={imagen.alt}
+                  class="w-full h-auto object-cover"
+                  loading="lazy"
+                />
               </div>
             </div>
-          </div>
-
-          <!-- Quote -->
-          <div class="relative">
-            <svg class="absolute -top-2 -left-2 w-8 h-8 text-pink-300 opacity-50" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
-            </svg>
-            <p class="text-gray-700 leading-relaxed mb-4 pl-6">
-              "{testimonio.testimonio}"
-            </p>
-          </div>
-
-          <!-- Event Tag -->
-          <div class="flex items-center gap-2 pt-4 border-t border-pink-200">
-            <span class="text-sm">🎉</span>
-            <span class="text-sm font-medium text-pink-600">{testimonio.evento}</span>
-          </div>
-        </div>
-      ))}
-    </div>
-
-    <!-- Stats -->
-    <div class="bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 rounded-3xl shadow-2xl p-8 md:p-12">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center text-white">
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <div class="text-5xl md:text-6xl font-fredoka font-bold mb-2">500+</div>
-          <div class="text-lg opacity-90">Sorpresas Realizadas</div>
-          <div class="text-3xl mt-2">🎉</div>
-        </div>
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <div class="text-5xl md:text-6xl font-fredoka font-bold mb-2">100%</div>
-          <div class="text-lg opacity-90">Satisfacción Garantizada</div>
-          <div class="text-3xl mt-2">⭐</div>
-        </div>
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <div class="text-5xl md:text-6xl font-fredoka font-bold mb-2">50+</div>
-          <div class="text-lg opacity-90">Personajes Únicos</div>
-          <div class="text-3xl mt-2">🎭</div>
-        </div>
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <div class="text-5xl md:text-6xl font-fredoka font-bold mb-2">3</div>
-          <div class="text-lg opacity-90">Años de Experiencia</div>
-          <div class="text-3xl mt-2">🏆</div>
+          ))}
+          <!-- Duplicar imágenes para loop infinito -->
+          {carruselImagenes.map((imagen) => (
+            <div class="flex-shrink-0 w-80 md:w-96 carousel-item">
+              <div class="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                <Image
+                  src={imagen.imagen}
+                  alt={imagen.alt}
+                  class="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
 
-    <!-- CTA -->
-    <div class="mt-12 text-center bg-gradient-to-br from-yellow-50 to-pink-50 rounded-3xl shadow-lg p-8 md:p-12">
-      <div class="flex justify-center gap-2 text-4xl mb-6">
-        <span class="animate-bounce">💬</span>
-        <span class="animate-bounce animation-delay-200">✨</span>
-        <span class="animate-bounce animation-delay-400">💬</span>
+    <!-- 3️⃣ SUB-SECCIÓN: Nuestros clientes felices en redes -->
+    <div>
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <span class="inline-block text-5xl mb-4">🎉</span>
+        <h2 class="font-fredoka text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          La felicidad se comparte
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Cada mensaje cuenta una historia distinta, pero todos tienen algo en común: la alegría.
+        </p>
       </div>
-      
-      <h3 class="font-fredoka text-3xl font-bold text-gray-800 mb-4">
-        ¿Quieres Ser el Próximo Testimonio?
-      </h3>
-      
-      <p class="text-gray-600 text-lg mb-6 max-w-2xl mx-auto">
-        Únete a las cientos de familias que han confiado en nosotros para crear momentos mágicos. Tu historia puede ser la siguiente en inspirar a otros.
-      </p>
 
-      <a 
-        href="https://wa.me/34123456789?text=Hola!%20Quiero%20crear%20un%20momento%20m%C3%A1gico%20para%20mi%20familia%20%E2%9C%A8" 
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-      >
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-        </svg>
-        Comienza Tu Historia
-      </a>
+      <!-- Collages Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <!-- Collage Facebook -->
+        <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 aspect-square">
+          <Image
+            src={collageFacebook}
+            alt="Collage de comentarios de Facebook"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Collage WhatsApp -->
+        <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 aspect-square">
+          <Image
+            src={collageWhatsapp}
+            alt="Collage de comentarios de WhatsApp"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<style>
-  .animation-delay-200 {
-    animation-delay: 0.2s;
+<script>
+  // Carrusel infinito tipo rueda
+  const track = document.getElementById('carousel-track');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  
+  if (track && prevBtn && nextBtn) {
+    let currentIndex = 0;
+    const items = Array.from(track.children);
+    const originalItemCount = items.length / 2;
+    
+    // Función para calcular el ancho real del slide
+    function getSlideWidth() {
+      if (items.length > 0 && track) {
+        const firstItem = items[0] as HTMLElement;
+        const itemWidth = firstItem.offsetWidth;
+        const computedStyle = window.getComputedStyle(track);
+        const gap = parseInt(computedStyle.gap) || 16;
+        return itemWidth + gap;
+      }
+      return 0;
+    }
+    
+    // Función para mover el carrusel
+    function moveCarousel(direction: number) {
+      if (!track) return;
+      
+      const slideWidth = getSlideWidth();
+      currentIndex += direction;
+      
+      // Si avanzamos y llegamos al final del primer set
+      if (direction > 0 && currentIndex >= originalItemCount) {
+        // Desactivar transición temporalmente
+        track.style.transition = 'none';
+        currentIndex = 0; // Resetear al inicio
+        track.style.transform = `translateX(0px)`;
+        
+        // Forzar un reflow
+        track.offsetHeight;
+        
+        // Reactivar transición y NO avanzar más (ya se movió con direction)
+        setTimeout(() => {
+          if (track) {
+            track.style.transition = 'transform 500ms ease-in-out';
+          }
+        }, 20);
+        return;
+      }
+      
+      // Si retrocedemos desde el inicio
+      if (direction < 0 && currentIndex < 0) {
+        track.style.transition = 'none';
+        currentIndex = originalItemCount - 1;
+        const offset = -(currentIndex * slideWidth);
+        track.style.transform = `translateX(${offset}px)`;
+        
+        // Forzar un reflow
+        track.offsetHeight;
+        
+        setTimeout(() => {
+          if (track) {
+            track.style.transition = 'transform 500ms ease-in-out';
+          }
+        }, 20);
+        return;
+      }
+      
+      const offset = -(currentIndex * slideWidth);
+      track.style.transform = `translateX(${offset}px)`;
+    }
+    
+    // Event listeners para botones
+    prevBtn.addEventListener('click', () => moveCarousel(-1));
+    nextBtn.addEventListener('click', () => moveCarousel(1));
+    
+    // Autoplay cada 3 segundos
+    let autoplayInterval = setInterval(() => moveCarousel(1), 3000);
+    
+    /* // Pausar autoplay al hacer hover
+    track.addEventListener('mouseenter', () => {
+      clearInterval(autoplayInterval);
+    });
+    
+    track.addEventListener('mouseleave', () => {
+      autoplayInterval = setInterval(() => moveCarousel(1), 3000);
+    }); */
+    
+    // Recalcular posición al cambiar el tamaño de la ventana
+    let resizeTimeout: ReturnType<typeof setTimeout>;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        if (track) {
+          const slideWidth = getSlideWidth();
+          const offset = -(currentIndex * slideWidth);
+          track.style.transform = `translateX(${offset}px)`;
+        }
+      }, 100);
+    });
   }
-  .animation-delay-400 {
-    animation-delay: 0.4s;
+</script>
+
+<style>
+  #carousel-track {
+    will-change: transform;
+  }
+  
+  @media (max-width: 768px) {
+    #carousel-track > div {
+      width: 320px;
+    }
   }
 </style>
