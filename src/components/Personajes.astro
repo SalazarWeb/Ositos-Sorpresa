@@ -1,97 +1,127 @@
 ---
-import Tito from '../assets/Tito.jpg';
-import Coco from '../assets/Coco.jpg';
-import Coneja from '../assets/Coneja.jpg';
-import Mickey from '../assets/Mickey.jpg';
-import Minie from '../assets/Minie.jpg';
-import Oso from '../assets/Oso.jpg';
-import Stich from '../assets/Stich.jpg';
 import { Image } from 'astro:assets';
+
+// Importar personajes Mickey
+import MickeyChaquetaAzul from '../assets/Personajes/Mickey-chaqueta-azul.jpeg';
+import MickeyChaquetaNegra from '../assets/Personajes/Mickey-chaqueta-negra.jpeg';
+
+// Importar personaje Minnie
+import Minnie from '../assets/Personajes/Minnie.jpeg';
+
+// Importar personaje Stitch
+import Stitch from '../assets/Personajes/Stich.jpeg';
+
+// Importar personaje Oso
+import Oso from '../assets/Personajes/Oso.jpeg';
+
+// Importar personajes Coneja
+import ConejaChaquetaAzul from '../assets/Personajes/Coneja-chaqueta-azul.jpeg';
+import ConejaChaquetaNegra from '../assets/Personajes/Coneja-chaqueta-negra.jpeg';
+import ConejaVestidoMorado from '../assets/Personajes/Coneja-vestido-morado.jpeg';
+import ConejaVestidoRojo from '../assets/Personajes/Coneja-vestido-rojo.jpeg';
+import ConejaVestidoRojoGlobos from '../assets/Personajes/Coneja-vestido-rojo-globos.jpeg';
+
+// Importar personajes Rabbit
+import RabbitVestidoFlores from '../assets/Personajes/Rabbit-vestido-con-flores.jpeg';
+import RabbitVestidoRosado from '../assets/Personajes/Rabbit-vestido-rosado.jpeg';
+
+// Importar personaje Coco
+import CocoVestidoAzul from '../assets/Personajes/Coco-vestido-azul.jpeg';
+
+// Importar varios
+import Varios1 from '../assets/Personajes/varios1.jpeg';
+import Varios2 from '../assets/Personajes/varios2.jpeg';
 
 const personajes = [
   {
-    imagen: Mickey,
-    nombre: 'Mickey',
-    descripcion: 'El ratón más famoso del mundo para alegrar tu celebración',
-    color: 'from-red-400 to-red-600',
-    hasImage: true
+    imagen: MickeyChaquetaAzul,
+    nombre: 'Mickey - Chaqueta Azul',
+    descripcion: 'El ratón más famoso del mundo con elegante chaqueta azul',
+    color: 'from-blue-400 to-blue-600',
   },
   {
-    imagen: Minie,
+    imagen: MickeyChaquetaNegra,
+    nombre: 'Mickey - Chaqueta Negra',
+    descripcion: 'Mickey con estilo clásico en chaqueta negra',
+    color: 'from-gray-700 to-gray-900',
+  },
+  {
+    imagen: Minnie,
     nombre: 'Minnie',
     descripcion: 'Dulzura y ternura con el moño más adorable',
     color: 'from-pink-400 to-pink-600',
-    hasImage: true
   },
   {
-    imagen: Stich,
+    imagen: Stitch,
     nombre: 'Stitch',
     descripcion: 'El extraterrestre más tierno y travieso del universo',
-    color: 'from-blue-400 to-blue-600',
-    hasImage: true
+    color: 'from-blue-400 to-cyan-500',
   },
   {
     imagen: Oso,
     nombre: 'Osito',
     descripcion: 'Traje suave y tierno, el favorito de todos',
     color: 'from-amber-300 to-amber-500',
-    hasImage: true
   },
   {
-    imagen: Coneja,
-    nombre: 'Conejita',
-    descripcion: 'Orejas largas y cola esponjosa llena de ternura',
+    imagen: ConejaChaquetaAzul,
+    nombre: 'Conejita - Chaqueta Azul',
+    descripcion: 'Conejita elegante con chaqueta azul',
+    color: 'from-blue-300 to-blue-500',
+  },
+  {
+    imagen: ConejaChaquetaNegra,
+    nombre: 'Conejita - Chaqueta Negra',
+    descripcion: 'Conejita con estilo sofisticado en negro',
+    color: 'from-gray-600 to-gray-800',
+  },
+  {
+    imagen: ConejaVestidoMorado,
+    nombre: 'Conejita - Vestido Morado',
+    descripcion: 'Hermoso vestido morado lleno de encanto',
+    color: 'from-purple-400 to-purple-600',
+  },
+  {
+    imagen: ConejaVestidoRojo,
+    nombre: 'Conejita - Vestido Rojo',
+    descripcion: 'Vestido rojo vibrante y alegre',
+    color: 'from-red-400 to-red-600',
+  },
+  {
+    imagen: ConejaVestidoRojoGlobos,
+    nombre: 'Conejita - Vestido Rojo con Globos',
+    descripcion: 'Diversión garantizada con vestido rojo y globos',
+    color: 'from-red-300 to-pink-500',
+  },
+  {
+    imagen: RabbitVestidoFlores,
+    nombre: 'Rabbit - Vestido con Flores',
+    descripcion: 'Dulce rabbit con hermoso vestido floral',
+    color: 'from-green-300 to-green-500',
+  },
+  {
+    imagen: RabbitVestidoRosado,
+    nombre: 'Rabbit - Vestido Rosado',
+    descripcion: 'Ternura en color rosa pastel',
     color: 'from-pink-300 to-pink-500',
-    hasImage: true
   },
   {
-    imagen: Tito,
-    nombre: 'Tito',
-    descripcion: 'El personaje mágico que encanta a todos.',
-    color: 'from-green-400 to-emerald-600',
-    hasImage: true
+    imagen: CocoVestidoAzul,
+    nombre: 'Coco - Vestido Azul',
+    descripcion: 'Música y alegría con vestido azul especial',
+    color: 'from-blue-500 to-indigo-600',
   },
   {
-    imagen: Coco,
-    nombre: 'Coco',
-    descripcion: 'Música y alegría con este personaje especial',
-    color: 'from-orange-400 to-amber-600',
-    hasImage: true
+    imagen: Varios1,
+    nombre: 'Más Personajes',
+    descripcion: 'Descubre nuestra variedad de personajes especiales',
+    color: 'from-yellow-400 to-orange-500',
   },
   {
-    emoji: '🦸‍♂️',
-    nombre: 'Superhéroe',
-    descripcion: 'Capa, máscara y traje completo para salvar el día',
-    color: 'from-blue-400 to-blue-600',
-    hasImage: false
-  },
-  {
-    emoji: '👸',
-    nombre: 'Princesa',
-    descripcion: 'Vestido mágico con corona y varita brillante',
-    color: 'from-pink-400 to-pink-600',
-    hasImage: false
-  },
-  {
-    emoji: '🧚',
-    nombre: 'Hada',
-    descripcion: 'Alas delicadas y vestido con brillos',
-    color: 'from-cyan-400 to-blue-500',
-    hasImage: false
-  },
-  {
-    emoji: '🦖',
-    nombre: 'Dinosaurio',
-    descripcion: 'Cola larga y rugido prehistórico',
-    color: 'from-lime-400 to-green-600',
-    hasImage: false
-  },
-  {
-    emoji: '🧙‍♂️',
-    nombre: 'Mago',
-    descripcion: 'Túnica estrellada con sombrero y varita mágica',
-    color: 'from-indigo-400 to-purple-600',
-    hasImage: false
+    imagen: Varios2,
+    nombre: 'Personajes Adicionales',
+    descripcion: 'Aún más opciones para hacer tu celebración única',
+    color: 'from-purple-400 to-pink-500',
   },
 ];
 ---
@@ -118,18 +148,12 @@ const personajes = [
         >
           <div class={`bg-gradient-to-br ${personaje.color} flex items-center justify-center h-80 relative overflow-hidden`}>
             <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-            {personaje.hasImage ? (
-              <Image 
-                src={personaje.imagen!} 
-                alt={personaje.nombre}
-                class="w-full h-full object-cover object-top transform group-hover:scale-110 transition-transform duration-500"
-                loading="lazy"
-              />
-            ) : (
-              <span class="text-9xl transform group-hover:scale-110 transition-transform duration-300 relative z-10">
-                {personaje.emoji}
-              </span>
-            )}
+            <Image 
+              src={personaje.imagen} 
+              alt={personaje.nombre}
+              class="w-full h-full object-cover object-top transform group-hover:scale-110 transition-transform duration-500"
+              loading="lazy"
+            />
           </div>
           <div class="p-8">
             <h3 class="font-fredoka text-3xl font-bold text-gray-800 mb-3">
