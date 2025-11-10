@@ -203,7 +203,9 @@ const carruselImagenes = [
 </section>
 
 <script>
-  // Carrusel infinito tipo rueda
+  const AUTOPLAY_DELAY = 3000;   
+  const AUTOPLAY_INTERVAL = 5000;
+  const TRANSITION_SPEED = 800;  
   const track = document.getElementById('carousel-track');
   const prevBtn = document.getElementById('prev-btn');
   const nextBtn = document.getElementById('next-btn');
@@ -213,7 +215,6 @@ const carruselImagenes = [
     const items = Array.from(track.children);
     const originalItemCount = items.length / 2;
     
-    // Función para calcular el ancho real del slide
     function getSlideWidth() {
       if (items.length > 0 && track) {
         const firstItem = items[0] as HTMLElement;
@@ -242,10 +243,10 @@ const carruselImagenes = [
         // Forzar un reflow
         track.offsetHeight;
         
-        // Reactivar transición y NO avanzar más (ya se movió con direction)
+        // Reactivar transición con velocidad configurada
         setTimeout(() => {
           if (track) {
-            track.style.transition = 'transform 500ms ease-in-out';
+            track.style.transition = `transform ${TRANSITION_SPEED}ms ease-in-out`;
           }
         }, 20);
         return;
@@ -263,7 +264,7 @@ const carruselImagenes = [
         
         setTimeout(() => {
           if (track) {
-            track.style.transition = 'transform 500ms ease-in-out';
+            track.style.transition = `transform ${TRANSITION_SPEED}ms ease-in-out`;
           }
         }, 20);
         return;
@@ -276,6 +277,32 @@ const carruselImagenes = [
     // Event listeners para botones
     prevBtn.addEventListener('click', () => moveCarousel(-1));
     nextBtn.addEventListener('click', () => moveCarousel(1));
+    
+    let autoplayInterval: ReturnType<typeof setInterval>;
+    
+    function startAutoplay() {
+      autoplayInterval = setInterval(() => moveCarousel(1), AUTOPLAY_INTERVAL);
+    }
+    
+    function stopAutoplay() {
+      clearInterval(autoplayInterval);
+    }
+    
+    // Iniciar autoplay después del delay inicial
+    setTimeout(() => {
+      startAutoplay();
+    }, AUTOPLAY_DELAY);
+    
+    // Pausar autoplay cuando se hace clic en los botones
+    prevBtn.addEventListener('click', () => {
+      stopAutoplay();
+      setTimeout(startAutoplay, 2000);
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      stopAutoplay();
+      setTimeout(startAutoplay, 2000);
+    });
     
     // Recalcular posición al cambiar el tamaño de la ventana
     let resizeTimeout: ReturnType<typeof setTimeout>;
