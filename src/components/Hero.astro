@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/ositos-logo.jpg';
 ---
 
 <section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 pt-20">
@@ -78,17 +80,24 @@
       <!-- Illustration -->
       <div class="relative animate-fade-in-up animation-delay-200">
         <div class="relative z-10">
-          <!-- Main Bear Card -->
+          <!-- Main Card with Logo -->
           <div class="bg-white rounded-3xl shadow-2xl p-8 transform hover:scale-105 transition-transform duration-500">
             <div class="text-center space-y-4">
-              <div class="text-9xl animate-bounce-slow">🧸</div>
+              <!-- Logo Principal -->
+              <div class="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-pink-200 animate-bounce-slow">
+                <Image 
+                  src={logo} 
+                  alt="Ositos Sorpresas" 
+                  class="w-full h-full object-cover"
+                />
+              </div>
               <div class="flex justify-center gap-2 text-4xl">
                 <span class="animate-float">🎈</span>
                 <span class="animate-float-delayed">🎁</span>
                 <span class="animate-float">🎉</span>
               </div>
-              <h3 class="font-fredoka text-2xl font-bold text-gray-800">¡Hola! Soy Coco</h3>
-              <p class="text-gray-600">Lista para hacer tu día especial</p>
+              <h3 class="font-fredoka text-2xl font-bold text-gray-800">Ositos Sorpresas</h3>
+              <p class="text-gray-600">Hacemos realidad tus momentos especiales</p>
             </div>
           </div>
 
