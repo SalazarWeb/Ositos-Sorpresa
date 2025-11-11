@@ -1,46 +1,54 @@
 ---
+import { Image } from 'astro:assets';
+import video1 from '../assets/videos/video1.jpg';
+import video2 from '../assets/videos/video2.jpg';
+import video3 from '../assets/videos/video3.jpg';
+import video4 from '../assets/videos/video4.jpg';
+import video5 from '../assets/videos/video5.jpg';
+import video6 from '../assets/videos/video6.jpg';
+
 const videos = [
   {
     id: 1,
-    titulo: 'Sorpresa de Superhéroe',
-    descripcion: 'Miguel no podía creer cuando vio a su superhéroe favorito en su cumpleaños',
-    thumbnail: '🦸‍♂️',
-    duracion: '2:30'
+    titulo: 'Una linda tarde con Cleo',
+    descripcion: 'Cleo llegó con su energía única para alegrar una tarde inolvidable llena de risas y diversión',
+    preview: video1,
+    facebookUrl: 'https://www.facebook.com/share/175sBZQC9r/'
   },
   {
     id: 2,
-    titulo: 'Princesa por un Día',
-    descripcion: 'Sofia se convirtió en la princesa de sus sueños con nuestra sorpresa mágica',
-    thumbnail: '👸',
-    duracion: '3:15'
+    titulo: 'Cleo la hizo muy feliz',
+    descripcion: 'La magia de Cleo transformó este momento en pura felicidad y sonrisas radiantes',
+    preview: video2,
+    facebookUrl: 'https://www.facebook.com/share/1Jgi9H49bY/'
   },
   {
     id: 3,
-    titulo: 'Safari de Cumpleaños',
-    descripcion: 'Una aventura salvaje con disfraces de animales y decoración temática',
-    thumbnail: '🦁',
-    duracion: '2:45'
+    titulo: 'Conejito repartero',
+    descripcion: 'El conejito más adorable llegó saltando con sorpresas y alegría para todos',
+    preview: video3,
+    facebookUrl: 'https://www.facebook.com/share/1BBDZdhNMa/'
   },
   {
     id: 4,
-    titulo: 'Unicornio Mágico',
-    descripcion: 'La llegada de un unicornio real hizo realidad los sueños de Valentina',
-    thumbnail: '🦄',
-    duracion: '2:20'
+    titulo: 'Stitch animando',
+    descripcion: 'Stitch trajo su espíritu travieso y divertido para animar esta celebración especial',
+    preview: video4,
+    facebookUrl: 'https://www.facebook.com/share/16KJx2p3H5/'
   },
   {
     id: 5,
-    titulo: 'Fiesta de Dinosaurios',
-    descripcion: 'Viaje al pasado con dinosaurios gigantes y sorpresas prehistóricas',
-    thumbnail: '🦖',
-    duracion: '3:00'
+    titulo: 'Minnie llega a la fiesta',
+    descripcion: 'La dulce Minnie Mouse apareció con sus lazos y ternura para hacer este día mágico',
+    preview: video5,
+    facebookUrl: 'https://www.facebook.com/share/r/1ERt3Q17PJ/'
   },
   {
     id: 6,
-    titulo: 'Magia y Hadas',
-    descripcion: 'Un mundo de fantasía con hadas y magia que dejó a todos asombrados',
-    thumbnail: '🧚',
-    duracion: '2:50'
+    titulo: 'Coco y una bella familia',
+    descripcion: 'Un momento emotivo donde Coco unió a toda la familia en amor y celebración',
+    preview: video6,
+    facebookUrl: 'https://www.facebook.com/share/r/1GypcRPGE7/'
   }
 ];
 ---
@@ -61,16 +69,23 @@ const videos = [
     <!-- Videos Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
       {videos.map((video, index) => (
-        <div 
-          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2"
+        <a
+          href={video.facebookUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2 cursor-pointer"
           style={`animation-delay: ${index * 0.1}s`}
         >
-          <!-- Thumbnail -->
-          <div class="relative h-56 bg-gradient-to-br from-pink-400 via-purple-400 to-blue-400 flex items-center justify-center overflow-hidden">
+          <!-- Preview Image -->
+          <div class="relative h-56 overflow-hidden">
+            <Image
+              src={video.preview}
+              alt={video.titulo}
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+            
+            <!-- Overlay -->
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300"></div>
-            <span class="text-9xl transform group-hover:scale-110 transition-transform duration-500 relative z-10">
-              {video.thumbnail}
-            </span>
             
             <!-- Play Button -->
             <div class="absolute inset-0 flex items-center justify-center z-20">
@@ -81,9 +96,11 @@ const videos = [
               </div>
             </div>
 
-            <!-- Duration Badge -->
-            <div class="absolute bottom-3 right-3 bg-black/70 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
-              {video.duracion}
+            <!-- Facebook Badge -->
+            <div class="absolute top-3 left-3 bg-blue-600/90 backdrop-blur-sm text-white w-8 h-8 rounded-full flex items-center justify-center z-10">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
             </div>
           </div>
 
@@ -96,7 +113,7 @@ const videos = [
               {video.descripcion}
             </p>
           </div>
-        </div>
+        </a>
       ))}
     </div>
 
