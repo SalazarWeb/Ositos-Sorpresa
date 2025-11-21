@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GaleriaPersonaje from '../../components/GaleriaPersonaje.astro';
+import Minnie from '../../assets/Personajes/Minnie.webp';
+
+const imagenes = [
+  Minnie,
+  Minnie,
+  Minnie,
+  Minnie,
+  Minnie,
+  Minnie,
+];
+---
+
+<Layout title="Minnie | Ositos Sorpresa">
+  <GaleriaPersonaje 
+    nombre="Minnie"
+    imagenes={imagenes}
+    color="from-pink-400 to-pink-600"
+  />
+</Layout>

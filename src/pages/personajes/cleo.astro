@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GaleriaPersonaje from '../../components/GaleriaPersonaje.astro';
+import ConejaVestidoMorado from '../../assets/Personajes/Coneja-vestido-morado.webp';
+
+const imagenes = [
+  ConejaVestidoMorado,
+  ConejaVestidoMorado,
+  ConejaVestidoMorado,
+  ConejaVestidoMorado,
+  ConejaVestidoMorado,
+  ConejaVestidoMorado,
+];
+---
+
+<Layout title="Cleo | Ositos Sorpresa">
+  <GaleriaPersonaje 
+    nombre="Cleo"
+    imagenes={imagenes}
+    color="from-purple-300 to-purple-500"
+  />
+</Layout>

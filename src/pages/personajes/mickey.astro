@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GaleriaPersonaje from '../../components/GaleriaPersonaje.astro';
+import MickeyChaquetaAzul from '../../assets/Personajes/Mickey-chaqueta-azul.webp';
+
+const imagenes = [
+  MickeyChaquetaAzul,
+  MickeyChaquetaAzul,
+  MickeyChaquetaAzul,
+  MickeyChaquetaAzul,
+  MickeyChaquetaAzul,
+  MickeyChaquetaAzul,
+];
+---
+
+<Layout title="Mickey | Ositos Sorpresa">
+  <GaleriaPersonaje 
+    nombre="Mickey"
+    imagenes={imagenes}
+    color="from-blue-400 to-blue-600"
+  />
+</Layout>

@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GaleriaPersonaje from '../../components/GaleriaPersonaje.astro';
+import RabbitVestidoFlores from '../../assets/Personajes/Rabbit-vestido-con-flores.webp';
+
+const imagenes = [
+  RabbitVestidoFlores,
+  RabbitVestidoFlores,
+  RabbitVestidoFlores,
+  RabbitVestidoFlores,
+  RabbitVestidoFlores,
+  RabbitVestidoFlores,
+];
+---
+
+<Layout title="Rabbit | Ositos Sorpresa">
+  <GaleriaPersonaje 
+    nombre="Rabbit"
+    imagenes={imagenes}
+    color="from-green-300 to-green-500"
+  />
+</Layout>

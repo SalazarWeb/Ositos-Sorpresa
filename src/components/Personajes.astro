@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 
 // Importar personajes Mickey
 import MickeyChaquetaAzul from '../assets/Personajes/Mickey-chaqueta-azul.webp';
-import MickeyChaquetaNegra from '../assets/Personajes/Mickey-chaqueta-negra.webp';
 
 // Importar personaje Minnie
 import Minnie from '../assets/Personajes/Minnie.webp'; 
@@ -15,113 +14,71 @@ import Stitch from '../assets/Personajes/Stich.webp';
 import Oso from '../assets/Personajes/Oso.webp';
 
 // Importar personajes Coneja
-import ConejaChaquetaAzul from '../assets/Personajes/Coneja-chaqueta-azul.webp';
-import ConejaChaquetaNegra from '../assets/Personajes/Coneja-chaqueta-negra.webp';
+import ConejoChaquetaAzul from '../assets/Personajes/Conejo-chaqueta-azul.webp';
 import ConejaVestidoMorado from '../assets/Personajes/Coneja-vestido-morado.webp';
-import ConejaVestidoRojo from '../assets/Personajes/Coneja-vestido-rojo.webp';
-import ConejaVestidoRojoGlobos from '../assets/Personajes/Coneja-vestido-rojo-globos.webp';
 
 // Importar personajes Rabbit
 import RabbitVestidoFlores from '../assets/Personajes/Rabbit-vestido-con-flores.webp';
-import RabbitVestidoRosado from '../assets/Personajes/Rabbit-vestido-rosado.webp';
 
 // Importar personaje Coco
 import CocoVestidoAzul from '../assets/Personajes/Coco-vestido-azul.webp';
 
-// Importar varios
-import Varios1 from '../assets/Personajes/varios1.webp';
-import Varios2 from '../assets/Personajes/varios2.webp';
-
 const personajes = [
   {
     imagen: MickeyChaquetaAzul,
-    nombre: 'Mickey - Chaqueta Azul',
+    nombre: 'Mickey',
     descripcion: 'El ratón más famoso del mundo con elegante chaqueta azul',
     color: 'from-blue-400 to-blue-600',
-  },
-  {
-    imagen: MickeyChaquetaNegra,
-    nombre: 'Mickey - Chaqueta Negra',
-    descripcion: 'Mickey con estilo clásico en chaqueta negra',
-    color: 'from-gray-700 to-gray-900',
+    slug: 'mickey',
   },
   {
     imagen: Minnie,
     nombre: 'Minnie',
     descripcion: 'Dulzura y ternura con el moño más adorable',
     color: 'from-pink-400 to-pink-600',
+    slug: 'minnie',
   },
   {
     imagen: Stitch,
     nombre: 'Stitch',
     descripcion: 'El extraterrestre más tierno y travieso del universo',
     color: 'from-blue-400 to-cyan-500',
+    slug: 'stitch',
   },
   {
     imagen: Oso,
     nombre: 'Roberto',
     descripcion: 'Traje suave y tierno, el favorito de todos',
     color: 'from-amber-300 to-amber-500',
+    slug: 'roberto',
   },
   {
-    imagen: ConejaChaquetaAzul,
-    nombre: 'Conejito - Chaqueta Azul',
+    imagen: ConejoChaquetaAzul,
+    nombre: 'Conejito',
     descripcion: 'Conejito elegante con chaqueta azul',
     color: 'from-blue-300 to-blue-500',
-  },
-  {
-    imagen: ConejaChaquetaNegra,
-    nombre: 'Conejito - Chaqueta Negra',
-    descripcion: 'Conejito con estilo sofisticado en negro',
-    color: 'from-gray-600 to-gray-800',
+    slug: 'conejito',
   },
   {
     imagen: ConejaVestidoMorado,
-    nombre: 'Cleo - Vestido Morado',
-    descripcion: 'Hermoso vestido morado lleno de encanto',
-    color: 'from-purple-400 to-purple-600',
-  },
-  {
-    imagen: ConejaVestidoRojo,
-    nombre: 'Cleo - Vestido Rojo',
-    descripcion: 'Vestido rojo vibrante y alegre',
-    color: 'from-red-400 to-red-600',
-  },
-  {
-    imagen: ConejaVestidoRojoGlobos,
-    nombre: 'Cleo - Vestido Rojo con Globos',
-    descripcion: 'Diversión garantizada con vestido rojo y globos',
-    color: 'from-red-300 to-pink-500',
+    nombre: 'Cleo',
+    descripcion: 'Encantadora conejita con hermoso vestido morado',
+    color: 'from-purple-300 to-purple-500',
+    slug: 'cleo',
   },
   {
     imagen: RabbitVestidoFlores,
-    nombre: 'Rabbit - Vestido con Flores',
+    nombre: 'Rabbit',
     descripcion: 'Dulce rabbit con hermoso vestido floral',
     color: 'from-green-300 to-green-500',
-  },
-  {
-    imagen: RabbitVestidoRosado,
-    nombre: 'Rabbit - Vestido Rosado',
-    descripcion: 'Ternura en color rosa pastel',
-    color: 'from-pink-300 to-pink-500',
+    slug: 'rabbit',
   },
   {
     imagen: CocoVestidoAzul,
-    nombre: 'Coco - Vestido Azul',
+    nombre: 'Coco',
     descripcion: 'Música y alegría con vestido azul especial',
     color: 'from-blue-500 to-indigo-600',
-  },
-  {
-    imagen: Varios1,
-    nombre: 'Más Personajes',
-    descripcion: 'Descubre nuestra variedad de personajes especiales',
-    color: 'from-yellow-400 to-orange-500',
-  },
-  {
-    imagen: Varios2,
-    nombre: 'Personajes Adicionales',
-    descripcion: 'Aún más opciones para hacer tu celebración única',
-    color: 'from-purple-400 to-pink-500',
+    slug: 'coco',
   },
 ];
 ---
@@ -142,8 +99,9 @@ const personajes = [
     <!-- Personajes Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
       {personajes.map((personaje, index) => (
-        <div 
-          class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2"
+        <a 
+          href={`/personajes/${personaje.slug}`}
+          class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2 cursor-pointer"
           style={`animation-delay: ${index * 0.1}s`}
         >
           <div class={`bg-gradient-to-br ${personaje.color} flex items-center justify-center h-80 relative overflow-hidden`}>
@@ -163,7 +121,7 @@ const personajes = [
               {personaje.descripcion}
             </p>
           </div>
-        </div>
+        </a>
       ))}
     </div>
 

@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GaleriaPersonaje from '../../components/GaleriaPersonaje.astro';
+import Stitch from '../../assets/Personajes/Stich.webp';
+
+const imagenes = [
+  Stitch,
+  Stitch,
+  Stitch,
+  Stitch,
+  Stitch,
+  Stitch,
+];
+---
+
+<Layout title="Stitch | Ositos Sorpresa">
+  <GaleriaPersonaje 
+    nombre="Stitch"
+    imagenes={imagenes}
+    color="from-blue-400 to-cyan-500"
+  />
+</Layout>

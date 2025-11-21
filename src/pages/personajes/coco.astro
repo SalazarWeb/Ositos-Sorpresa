@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GaleriaPersonaje from '../../components/GaleriaPersonaje.astro';
+import CocoVestidoAzul from '../../assets/Personajes/Coco-vestido-azul.webp';
+
+const imagenes = [
+  CocoVestidoAzul,
+  CocoVestidoAzul,
+  CocoVestidoAzul,
+  CocoVestidoAzul,
+  CocoVestidoAzul,
+  CocoVestidoAzul,
+];
+---
+
+<Layout title="Coco | Ositos Sorpresa">
+  <GaleriaPersonaje 
+    nombre="Coco"
+    imagenes={imagenes}
+    color="from-blue-500 to-indigo-600"
+  />
+</Layout>

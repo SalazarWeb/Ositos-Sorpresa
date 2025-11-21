@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GaleriaPersonaje from '../../components/GaleriaPersonaje.astro';
+import Oso from '../../assets/Personajes/Oso.webp';
+
+const imagenes = [
+  Oso,
+  Oso,
+  Oso,
+  Oso,
+  Oso,
+  Oso,
+];
+---
+
+<Layout title="Roberto | Ositos Sorpresa">
+  <GaleriaPersonaje 
+    nombre="Roberto"
+    imagenes={imagenes}
+    color="from-amber-300 to-amber-500"
+  />
+</Layout>

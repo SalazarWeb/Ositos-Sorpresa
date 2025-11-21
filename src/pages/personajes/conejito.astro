@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GaleriaPersonaje from '../../components/GaleriaPersonaje.astro';
+import ConejoChaquetaAzul from '../../assets/Personajes/Conejo-chaqueta-azul.webp';
+
+const imagenes = [
+  ConejoChaquetaAzul,
+  ConejoChaquetaAzul,
+  ConejoChaquetaAzul,
+  ConejoChaquetaAzul,
+  ConejoChaquetaAzul,
+  ConejoChaquetaAzul,
+];
+---
+
+<Layout title="Conejito | Ositos Sorpresa">
+  <GaleriaPersonaje 
+    nombre="Conejito"
+    imagenes={imagenes}
+    color="from-blue-300 to-blue-500"
+  />
+</Layout>
